@@ -3,7 +3,7 @@
 ## Executive Summary
 RSVP traffic engineering (TE) capabilities are so enriched that it would require a lengthy book to cover all of the TE capabilities.  One of very attractive feature of rsvp signalled Label Switch Path (LSP) is to signal or reserve bandwidth across the physical links through which LSP traverses. In order to avoid links over subscription during LSP setup rsvp also offers a feature to subscribe links bandwidth out of total physical bandwidth. Static bandwidth for LSPs does not suits production network as production network traffic patrons are not always static.  LSP signalled with static bandwidth configuration  does not cater dynamic bandwidth adjustments which is often required due to increase or decrease in traffic volume. Auto-bandwidth provides capability to adjust LSP bandwidth signalling based on traffic needs.  In this document I will endeavor to cover RSVP auto-bandwidth capabilities and how it can help to optimally utilise rsvp enabled links in MPLS backbone network. 
 
-Note:- All of LSP bandwidth signalling , rsvp link subscription is control plane based activities and does not put any restriction on forwarding plane traffic. 
+Note:- All of LSP bandwidth signalling , rsvp link subscription is control plane based activities and does not put any restriction on forwarding plane traffic. RSVP does offer a knob to control amount of bandwidth available for forwarding plane traffic, we will review that knob in one of upcoming section.
 
 ## Lab Topology 
 ![Lab_Topology](./images/topology.png)
@@ -42,7 +42,7 @@ In my topology I have also reduced rsvp Static Bw or total Physical link bandwid
 Interface          State  resv    iption  BW          BW          BW          mark
 et-0/0/2.0             Up       2    90%  250Mbps     224.999Mbps 1000bps     561.07Mbps 
 ```
-Above arrangement is done to simulate a scenario if an interface physical bandwidth is 100% utilized due to actual traffic then CSPF should find new path for LSP auto-bandwidth adjustment in make-before-break fashion over new path. 
+Above arrangement is done to simulate a scenario if an interface physical bandwidth is 100% utilized due to actual traffic then CSPF should find new path for LSP auto-bandwidth adjustment in make-before-break fashion over new path. RSVP interface bandwidth put a cap on actual bandwidth available for LSPs forwarding plane traffic. 
 
 ## Auto-Bandwidth
 As, name suggests auto bandwidth feature provides functionality to adjust MPLS LSP bandwidth dynamically based on traffic statistics sampling. Once, auto bandwidth is enabled over an LSP then it's traffic samples are captured to get max bandwidth utilization during each sampling period. LSP bandwidth is automatically adjusted after an adjust interval if maximum bandwidth utilization (MaxAvg Bandwidth) during  any of the sampling period has surpased configured threshold value from presently signalled bandwidth. If any of link in current LSP path does not have enough bandwidth to adjust new bandwidth requirement then LSP is signaled to a new path, once traffic will be shifted new path then old path will be terminated.  Adjustment of bandwidth  on new path happens happens in make before break fashion. If no new path is available to accommodate new bandwidth requirement then current path will be held as it is.
