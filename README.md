@@ -168,18 +168,18 @@ groups {
     }
 }
 ```
-Few terms in above configuration snippet are not explained above text and I will try to explain those term with brevity. 
-* priority 5 5 describers LSP setup and hold priority
+Few terms in above configuration snippet are not explained in above text and I will try to explain those term with brevity. 
+* priority 5 5 describers LSP setup and hold priority.
 * least-fill control CSPF ECMP behavior e.g if multiple LSPs to same destinations exists then how those LSPs will be spawned acorss RSVP TE domain (the least fill is use such LPSs on links which are least used)
 * optimize-timer control how fast CSPF is recomputed , 0 is disable and 65,535 is maximum value.  It's value should be choosen carefuly in production network as having aggressive timer could cause aggressive resources consumption. 
 * node-link-protection provides facility backup feature (protection in case of downward node or link failure)
 
 ## Test Execution
-Enough explanation with theory and it's time for test. I already have executed tested and complied results in tabular format for ease of explanation. 
+Enough explanation with theory and it's time for test. I have already  executed tested and complied results in tabular format for ease of explanation. 
 
 ![tets_results](./images/test_results.png)
 * A traffic stream with throughput between 250-300 Mbps was sent from tester-1 via CE1 to tester-2 over MPLS backbone network.
-* It was single flow and CE1 selceted to send all the traffic towards PE2.
+* It was single flow and CE1 was sedning traffic towards PE2.
 * PE2 was sending traffic to PE3 via MPLS backbone (PE2-P1-P3-P5-PE3) network and PE3 was passing traffic to tester-2 via CE2
 ### Results Explaination
 * 1st time stamp shows output captured just at begging when  traffic stream was started from tester-1 to tester-2 and it shows initially signalled bandwidth i.e 1000bps or 1kbps 
