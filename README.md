@@ -191,4 +191,4 @@ Enough explanation with theory and it's time for test. I already have executed t
 * New path could not necessarily the shortest path but a path which would allow required bandwidth to pass through it.
 
 ## Conclusion
-The Shortest possible duration for auto-bw adjustment is 150 seconds (half of minimum adjust-interval value i.e 300 seconds) but traffic congestion could happen in those 150 seconds and to handle such scenarios Class of Service is required to be configured across backbone network. I have covered Class of service design principals across backbone network in separate writeup (https://github.com/kashif-nawaz/MPLS-Backbone-Class-Of-Service-Design-Principles). 
+The Shortest possible duration for auto-bw adjustment is 150 seconds (half of minimum adjust-interval value i.e 300 seconds) but traffic congestion could happen during 150 seconds and to handle such scenarios Class of Service is required to be configured across backbone network. I have covered Class of service design principals across backbone network in separate writeup (https://github.com/kashif-nawaz/MPLS-Backbone-Class-Of-Service-Design-Principles). 
