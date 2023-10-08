@@ -178,4 +178,14 @@ Few terms in above configuration snippet are not explained above text and I will
 Enough explanation with theory and it's time for test. I already have executed tested and complied results in tabular format for ease of explanation. 
 
 ![tets_results](./images/test_results.png)
-
+* A traffic stream with throughput between 250-300 Mbps was sent from tester-1 via CE1 to tester-2 over MPLS backbone network.
+* It was single flow and CE1 selceted to send all the traffic towards PE2.
+* PE2 was sending traffic to PE3 via MPLS backbone (PE2-P1-P3-P5-PE3) network and PE3 was passing traffic to tester-2 via CE2
+### Results Explaination
+* 1st time stamp shows output captured just at begging when  traffic stream was started from tester-1 to tester-2 and it shows initially signalled bandwidth i.e 1000bps or 1kbps 
+* 2nd time stamp is shows output after 50 seconds (i.e stats-interval) and we can see Maxing Bw was recorded 261.9 Mbps.
+* 3rd time stamp shows output after 2nd stats-interval and Maxing Bw was slightly increased to 264.073Mbps.
+* 4th time stamps shows output after 3rd stats-interval and MaxAvd Bw was increased to 278.44 Mbps, it implies that during last 3 stats-interval bandwidth utilization increase is recorded more then adjust-theroshd (3 %) from currently singled bandwidth i.e 1000bps and increase in bandwidth utilization also crossed adjust-threshold-activate-bandwidth 25 Mbps value.
+* All of the condition to for auto-bw adjusmtent are met so LSP bandwidth will be re-adjusted in make before break fashion.
+* Hence I have reduced rsvp Static Bw to 250Mbps on certain link (please see lab topology in one of above section) so CSPF will find a new path to signal LSP from PE2-PE3 over a path which could allow 278.44 Mbps bandwidth through it and that was signalled via PE2-P1-P3-P6-PE3. 
+* New path could not necessarily the shortest path but a path which would allow required bandwidth to pass through it.
