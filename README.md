@@ -6,4 +6,4 @@ RSVP traffic engineering (TE) capabilities are so enriched that it would require
 All of LSP bandwidth signaling , rsvp link subscription is control plane based activities and does not put any restriction on forwarding plane traffic. 
 
 ## Lab Topology 
-![Lab_Topology]()
+![Lab_Topology](./images/topology.png)
