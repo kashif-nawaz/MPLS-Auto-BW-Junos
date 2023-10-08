@@ -26,7 +26,7 @@ et-0/0/2.0             Up       2    90%  10Gbps      9Gbps       1000bps     10
 ```
 In above configuration , et-0/0/2 is configured to subscribe 90 % of link total bandwidth (Static Bw), and currently Reserved Bw is 1000bps, Available Bw describes how much bandwidth is available once Subscription is done from Static Bw. High water mark shows maximum bandwidth reservation happened on this link. 
 
-In my topology I have also configured rsvp bandwidth on certain link to reduce Static Bw (physical interface bandwidth available to rsvp) to 250mbps, please have a look on above topology diagram for reference. 
+In my topology I have also reduced rsvp Static Bw or total Physical link bandwidth on certain links to 250mbps, please have a look on above topology diagram for reference. 
 ```
  protocols {
  rsvp {
