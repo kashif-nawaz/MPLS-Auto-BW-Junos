@@ -189,3 +189,6 @@ Enough explanation with theory and it's time for test. I already have executed t
 * All of the condition to for auto-bw adjusmtent are met so LSP bandwidth will be re-adjusted in make before break fashion.
 * Hence I have reduced rsvp Static Bw to 250Mbps on certain link (please see lab topology in one of above section) so CSPF will find a new path to signal LSP from PE2-PE3 over a path which could allow 278.44 Mbps bandwidth through it and that was signalled via PE2-P1-P3-P6-PE3. 
 * New path could not necessarily the shortest path but a path which would allow required bandwidth to pass through it.
+
+## Conclusion
+The Shortest possible duration for auto-bw adjustment is 150 seconds (half of minimum adjust-interval value i.e 300 seconds) but traffic congestion could happen in those 150 seconds and to handle such scenarios Class of Service is required to be configured across backbone network. I have covered Class of service design principals across backbone network in separate writeup (https://github.com/kashif-nawaz/MPLS-Backbone-Class-Of-Service-Design-Principles). 
