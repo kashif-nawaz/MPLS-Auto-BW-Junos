@@ -1,4 +1,4 @@
-# MPLS-Auto-BW-Junos
+# MPLS-Auto-Bandwidth-Adjustment-Junos
 
 ## Executive Summary
 RSVP traffic engineering (TE) capabilities are so enriched that it would require a lengthy book to cover all of the TE capabilities.  One of very attractive feature of rsvp signalled Label Switch Path (LSP) is to signal or reserve bandwidth across the physical links through which LSP traverses. In order to avoid links over subscription during LSP setup rsvp also offers a feature to subscribe links bandwidth out of total physical bandwidth. Static bandwidth for LSPs does not suits production network as production network traffic patrons are not always static.  LSP signalled with static bandwidth configuration  does not cater dynamic bandwidth adjustments which is often required due to increase or decrease in traffic volume. Auto-bandwidth provides capability to adjust LSP bandwidth signalling based on traffic needs.  In this document I will endeavor to cover RSVP auto-bandwidth capabilities and how it can help to optimally utilise rsvp enabled links in MPLS backbone network. 
